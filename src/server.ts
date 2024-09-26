@@ -36,12 +36,10 @@ app.use(cors({
     allowedHeaders: 'Content-Type, Accept, Authorization',
 }));
 
-// Basic ROUTE
 app.get('/', (req: Request, res: Response) => {
     res.send('Hello World');
 });
 
-//  ROUTE
 app.use('/api', router)
 app.use('/api', cardRouter)
 
@@ -51,10 +49,6 @@ app.use(errorLogger);
 
 app.listen( port,async () =>{
     await connectDB();
-    const users = await User.find().limit(3);
-    const cards = await Card.find().limit(3)
-        console.log(chalk.red(users));
-        console.log(chalk.blue(cards));
     console.log(chalk.yellow(`Server running on port ${port}`))
 })
 
