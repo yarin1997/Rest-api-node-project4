@@ -5,13 +5,12 @@ import bcrypt from 'bcryptjs';
 import { IUser } from "../models/User";
 import { ICard } from "../models/Card";
 export const initializeData = async () => {
-    // Get the count of existing users
+
     const userAmount: number = await User.countDocuments();
 
     if (userAmount === 0) {
         const userIds: string[] = [];
 
-        // Create users from the initial data
         for (const u of data.users) {
             const user: IUser = new User(u);
             user.password = await bcrypt.hash(user.password, 10);
@@ -22,7 +21,6 @@ export const initializeData = async () => {
             }
         }
 
-        // Create cards and assign a random user
         for (const c of data.cards) {
             const card: ICard = new Card(c);
             if (userIds.length > 0) {
