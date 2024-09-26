@@ -3,7 +3,6 @@ import Joi from 'joi';
 export const phoneRegex= /^(\+?\d{1,4}[-.\s]?)?(\(?\d{3}\)?[-.\s]?)?\d{3}[-.\s]?\d{4}$/;
 export const emailRegex= /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,6}$/;
 
-// Define the Joi schema for the address
 export const addressSchema = Joi.object({
   state: Joi.string().required(),
   country: Joi.string().required(),
@@ -13,13 +12,11 @@ export const addressSchema = Joi.object({
   zip: Joi.string().required()
 });
 
-// Define the Joi schema for the image
 export const imageSchema = Joi.object({
   url: Joi.string().uri().required(),
   alt: Joi.string().required()
 });
 
-// Define the Joi schema for the card
 export const cardSchema = Joi.object({
   title: Joi.string().required(),
   subtitle: Joi.string().required(),
@@ -41,13 +38,11 @@ export const addressSchemaUpdate = Joi.object({
   zip: Joi.string().optional()
 });
 
-// Define the Joi schema for the image (for updating, fields are optional)
 export const imageSchemaUpdate = Joi.object({
   url: Joi.string().uri().optional(),
   alt: Joi.string().optional()
 });
 
-// Define the Joi schema for updating the card (fields are optional)
 export const cardSchemaUpdate = Joi.object({
   title: Joi.string().optional(),
   subtitle: Joi.string().optional(),
