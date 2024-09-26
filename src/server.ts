@@ -18,7 +18,7 @@ dotenv.config();
 const port = process.env.Port || 5000;
 
 app.use(express.json());
-app.use(morgan((tokens, req, res) => {
+app.use(morgan((tokens, req: Request, res: Response) => {
     const status = tokens.status(req, res);
     if(!status)return;
     return [
