@@ -48,7 +48,7 @@ const UserSchema: Schema = new Schema({
 declare global {
   namespace Express {
     interface Request {
-      user?: IUser; // Declare the user property here
+      user?: IUser;
     }
   }
 }
