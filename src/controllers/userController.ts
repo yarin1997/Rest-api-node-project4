@@ -17,11 +17,9 @@ export const registerUser = async (req: Request, res:Response) => {
   if (existingUser) {
   return res.status(400).json({ message: "The user already exists" });
 }
-      console.log('Request body:', req.body); 
     try {
         const hashedPassword = await bcrypt.hash( password, 10);
         const user = new User({...req.body, password:hashedPassword})
-        console.log("User Detail: "+user)
         await user.save();
         res.status(201).json({ message: 'User registered' });
     }
@@ -86,7 +84,6 @@ export const getUserBYId= async (req: Request, res: Response) => {
   if(req.user?.id !== userId && !req.user?.isAdmin){
     return res.status(500).json({ message: "No access"})
   }
-  
    res.status(200).json(req.user)
     }
 catch{
@@ -96,8 +93,7 @@ catch{
 
 export const editUser= async (req:Request, res: Response) => {
 const userId= req.params.id;
-console.log(userId)
-   const { error } = updateSchema.validate(req.body);
+const { error } = updateSchema.validate(req.body);
   if (error) {
       return res.status(400).json({ message: error.details[0].message });
   }
@@ -117,7 +113,6 @@ catch(error){
 
 export const changeIsBusinessStatus = async (req:Request, res:Response) => {
     const userId= req.params.id;
-    console.log(userId)
     if(!req.user) return res.status(404).json({ message: "User no found" })
     try{
     const updateUser= await User.findByIdAndUpdate(userId, {isBusiness: !req.user.isBusiness},{new: true});
@@ -134,7 +129,6 @@ catch(error){
 }
 export const deleteUser = async (req: Request, res:Response) => {
     const userId= req.params.id;
-    console.log(userId)
     if(!req.user) return res.status(404).json({ message: "User no found" })
     try{
     const updateUser= await User.findByIdAndDelete(userId, {new: true});
