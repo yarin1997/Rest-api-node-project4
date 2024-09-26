@@ -8,7 +8,6 @@ dotenv.config();
 
 
 export const createNewCard= async (req: Request, res: Response) => {
-    console.log(req.body);
     const {error} = cardSchema.validate( req.body );
     if ( error ) return res.status(400).json({ message: `Validation error: ${error.details[0].message}` });
 
@@ -41,7 +40,6 @@ try{
 }
 export const getCardById = async (req:Request, res:Response)=>{
   const cardId= req.params.id;
-  console.log(cardId)
   try{
     const card= await Card.findById(cardId);
     if ( !card ) return res.status(401).json({ message: `The card dosen't exist by the given ID`})
@@ -84,7 +82,6 @@ export const editCard= async (req:Request, res: Response) => {
     if (cardUserId.toString().trim() !== (req.user?._id as string).toString().trim() ) return res.status(401).json({ message: "You cant edit card that belong to another users"});
 
     const updateCard= await Card.findByIdAndUpdate(cardId, req.body, { new:true })
-    console.log( updateCard)
     if ( updateCard ) return res.status(200).json({ message: "the card is updated successfuly", card: updateCard})
   }
   catch (error) {
