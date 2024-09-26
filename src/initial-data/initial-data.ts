@@ -11,12 +11,12 @@ export const initialData = {
             "isBusiness": false,
             "isAdmin": false,
             "address": {
-                "state": "middleEast", // Optional, can be filled
+                "state": "middleEast",
                 "country": "israel",
                 "city": "tel-aviv",
                 "street": "magnive",
                 "houseNumber": "5",
-                "zip": "123456" // Optional, can be filled
+                "zip": "123456" 
             },
             "image": {
                 "url": "https://example.com/images/user3.jpg",
@@ -34,12 +34,12 @@ export const initialData = {
             "isBusiness": true,
             "isAdmin": false,
             "address": {
-                "state": "Jerusalem", // Optional, can be filled
+                "state": "Jerusalem", 
                 "country": "israel",
                 "city": "tel-aviv",
                 "street": "magnive",
                 "houseNumber": "5",
-                "zip": "54321" // Optional, can be filled
+                "zip": "54321" 
             },
             "image": {
                 "url": "https://example.com/images/user6.jpg",
@@ -57,12 +57,12 @@ export const initialData = {
             "isBusiness": true,
             "isAdmin": true,
             "address": {
-                "state": "Israel", // Optional, can be filled
+                "state": "Israel",
                 "country": "israel",
                 "city": "tel-aviv",
                 "street": "magnive",
                 "houseNumber": "5",
-                "zip": "13579" // Optional, can be filled
+                "zip": "13579"
             },
             "image": {
                 "url": "https://example.com/images/user5.jpg",
@@ -83,7 +83,7 @@ export const initialData = {
                  "alt": "Profile image of Dana Lee"
             },
             "address": {
-                "state": "Israel", // Optional, can be filled
+                "state": "Israel",
                 "country": "test",
                 "city": "test",
                 "street": "test",
@@ -103,7 +103,7 @@ export const initialData = {
                  "alt": "Profile image of Charlie Brown"
             },
             "address": {
-                "state": "Israel", // Optional, can be filled
+                "state": "Israel",
                 "country": "test",
                 "city": "test",
                 "street": "test",
@@ -123,7 +123,7 @@ export const initialData = {
                  "alt": "Profile image of Alice Smith"
             },
             "address": {
-                "state": "world", // Optional, can be filled
+                "state": "world", 
                 "country": "test",
                 "city": "test",
                 "street": "test",
